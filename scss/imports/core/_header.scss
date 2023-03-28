@@ -25,6 +25,8 @@
         }
       }
       &__menu {
+        opacity: 0;
+        visibility: hidden;
         ul {
           display: flex;
           li {

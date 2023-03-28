@@ -9,19 +9,24 @@
   background-size: cover;
   background-position-x: center;
   width: 100%;
-  height: calc(100vh - var(--height-header));
+  height: calc(75vh - var(--height-header));
   overflow: hidden;
   .container {
     height: 100%;
     position: relative;
   }
   &__wrap {
-    padding-top: 150px;
+    opacity: 0;
+    visibility: hidden;
     @include text(61.64px, M Bold, null, $blue-cl, null);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 50px;
     h1 {
       line-height: 78px;
       width: 650px;
-      padding-bottom: 50px;
     }
     &-btn {
       height: 70px;
@@ -140,60 +145,88 @@
 }
 
 .company {
-  .container {
-    display: flex;
-  }
-  &__content {
-    width: 50%;
+  &__select {
     display: flex;
     flex-direction: column;
-    .h3-title {
-      padding-bottom: 70px;
+    row-gap: 50px;
+    &-keyword {
+      position: relative;
+      label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0px 5px;
+        transform: translate(10%, -50%);
+        background-color: $white-cl;
+
+        @include text(15px, M Reg, normal, $blue-cl, null);
+      }
+      input {
+        padding: 10px;
+        border: 1px solid gray;
+        border-radius: 6px;
+        width: 100%;
+
+        @include text(15px, M Reg, normal, $blue-cl, null);
+      }
     }
-  }
-  &__items {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    &-block {
-      @include size(200px, 200px);
-      align-items: center;
-      justify-content: center;
+    &-location {
       display: flex;
-      flex-direction: column;
-      background-color: $gray-cl;
-    }
-  }
-}
-@include sm {
-  .company {
-    .container {
-      flex-direction: column;
-    }
-    &__content {
-      width: unset;
-      padding-bottom: 40px;
-      .h3-title {
-        padding-bottom: 40px;
+      column-gap: 50px;
+      .district {
+        width: 30%;
+        select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid gray;
+          border-radius: 6px;
+
+          @include text(15px, M Reg, normal, $blue-cl, null);
+        }
+      }
+      .street {
+        position: relative;
+        width: 70%;
+        label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 0px 5px;
+          transform: translate(10%, -50%);
+          background-color: $white-cl;
+
+          @include text(15px, M Reg, normal, $blue-cl, null);
+        }
+        input {
+          padding: 10px;
+          border: 1px solid gray;
+          border-radius: 6px;
+          width: 100%;
+          background-color: $white-cl;
+
+          @include text(15px, M Reg, normal, $blue-cl, null);
+        }
       }
     }
-    &__items {
-      width: unset;
-      &-block {
-        @include size(300px, 300px);
+    &-requirement {
+      display: flex;
+      align-items: center;
+      column-gap: 50px;
+      .area,
+      .trading {
+        width: 50%;
+        select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid gray;
+          border-radius: 6px;
+
+          @include text(15px, M Reg, normal, $blue-cl, null);
+        }
       }
-    }
-  }
-}
-@include xs {
-  .company {
-    &__items {
-      gap: 15px;
-      &-block {
-        @include size(170px, 170px);
+      .area {
+      }
+      .trading {
       }
     }
   }
